@@ -1,0 +1,32 @@
+ALGORITHM sentence_anlyse
+VAR
+    i,j,l : INTEGER;
+    v,w : INTEGER:=0;
+    sent : STRING
+BEGIN
+    //condition 
+    REPEAT
+        write(give a sentence that ends with '.');
+        read(sent);
+    UNTIL (sent[l-1]==".")
+    l:=length(sent);
+
+    FOR i FROM sent[0] TO l-1 STEP ++ DO
+        IF (sent[i] in ["a","e","i","o","u","y"]) THEN
+            v:=v+1;
+            i:=i+1;
+        ELSE
+            i=i+1;
+        END_IF
+    END_FOR
+    FOR j FROM sent[l-2] TO sent[0] STEP --  DO
+        IF (sent[j]==" ") THEN
+            w:=w+1;
+        END_IF
+    END_FOR
+
+    read(l);
+    read(v);
+    read(w);
+
+END
